@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+const experiencias = [
+	{ title: 'Senior Dev', company: 'Tech Corp', date: '2023 - 2026', desc: 'Liderazgo de proyectos con Astro y Svelte.' },
+	{ title: 'Junior Web', company: 'Studio XYZ', date: '2021 - 2023', desc: 'Desarrollo de interfaces con React y Tailwind.' },
+];
+---
+
+<Layout title="Experiencia | Portafolio">
+	<h1 class="text-3xl font-bold mb-12 text-center text-slate-900 dark:text-white" transition:name="title">Mi Trayectoria</h1>
+	
+	<div class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-8 space-y-12 py-4">
+		{experiencias.map(exp => (
+			<Card {...exp} />
+		))}
+	</div>
+</Layout>

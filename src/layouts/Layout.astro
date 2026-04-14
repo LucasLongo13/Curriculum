@@ -1,0 +1,50 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import ThemeToggle from '../components/ThemeToggle.svelte';
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+		<ClientRouter />
+		<script is:inline>
+			const applyTheme = () => {
+				const theme = (() => {
+					if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+						return localStorage.getItem('theme');
+					}
+					return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				})();
+				const isDark = theme === 'dark';
+				document.documentElement.classList.toggle('dark', isDark);
+				document.body.classList.toggle('dark', isDark);
+			};
+			applyTheme();
+			document.addEventListener('astro:after-swap', applyTheme);
+		</script>
+	</head>
+	<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen">
+		<nav class="p-6 flex justify-between items-center max-w-4xl mx-auto font-sans">
+			<div class="flex gap-6 font-medium">
+				<a href="/" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Inicio</a>
+				<a href="/experiencia" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Mi Experiencia</a>
+				<a href="/proyectos" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Proyectos</a>
+				<a href="/contacto" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contacto</a>
+			</div>
+			<ThemeToggle client:load />
+		</nav>
+		<main class="max-w-4xl mx-auto px-4 py-10 font-sans">
+			<slot />
+		</main>
+	</body>
+</html>
