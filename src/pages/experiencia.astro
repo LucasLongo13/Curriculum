@@ -3,15 +3,18 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 
 const experiencias = [
-	{ title: 'Senior Dev', company: 'Tech Corp', date: '2023 - 2026', desc: 'Liderazgo de proyectos con Astro y Svelte.' },
-	{ title: 'Junior Web', company: 'Studio XYZ', date: '2021 - 2023', desc: 'Desarrollo de interfaces con React y Tailwind.' },
+	{ title: 'Desarrollador Senior', company: 'Empresa Tech', date: '2023 - 2026', desc: 'Desarrollo de aplicaciones escalables utilizando Astro y Svelte 5.' },
+	{ title: 'Full Stack Dev', company: 'Agencia Digital', date: '2021 - 2023', desc: 'Creación de sitios web responsivos y optimización de bases de datos.' },
+	{ title: 'Estudiante de Programación', company: 'Universidad', date: '2019 - 2021', desc: 'Fundamentos de algoritmos, estructuras de datos y desarrollo web.' },
 ];
 ---
 
 <Layout title="Experiencia | Portafolio">
-	<h1 class="text-3xl font-bold mb-12 text-center text-slate-900 dark:text-white" transition:name="title">Mi Trayectoria</h1>
+	<h1 class="text-4xl font-black mb-16 text-center text-slate-900 dark:text-white" transition:name="title">
+		Experiencia Profesional
+	</h1>
 	
-	<div class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-8 space-y-12 py-4">
+	<div class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-8 space-y-12">
 		{experiencias.map(exp => (
 			<Card {...exp} />
 		))}
