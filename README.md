@@ -1,43 +1,53 @@
-# Astro Starter Kit: Minimal
+Mi Portafolio con Astro, Svelte 5 y Tailwind v4
+Tecnologías utilizadas
+Astro 5: Framework principal para una carga ultrarrápida (Zero JS por defecto).
 
-```sh
-bun create astro@latest -- --template minimal
-```
+Svelte 5: Utilizado para componentes interactivos (como el cambio de tema) usando Runes ($state, $effect).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Tailwind CSS v4: El motor de estilos más moderno para un diseño responsivo y limpio.
 
-## 🚀 Project Structure
+Bun: Como runtime y gestor de paquetes para una ejecución veloz.
 
-Inside of your Astro project, you'll see the following folders and files:
+Características principales
+Navegación Fluida: Implementación de ClientRouter para transiciones suaves entre páginas sin recarga completa.
 
-```text
+Modo Oscuro Persistente: Sistema de detección de preferencia del sistema y guardado en localStorage.
+
+Diseño Responsivo: Optimizado para dispositivos móviles, tablets y computadoras.
+
+Arquitectura de Componentes: Uso de componentes reutilizables en .astro y .svelte.
+
+Estructura del Proyecto
+Plaintext
 /
-├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+│   ├── components/     # Componentes (Card.astro, ThemeToggle.svelte)
+│   ├── layouts/        # Estructura base de las páginas (Layout.astro)
+│   ├── pages/          # Rutas: Inicio, Experiencia, Proyectos y Contacto
+│   └── styles/         # Configuración global de CSS y Tailwind
+├── public/             # Archivos estáticos (Imágenes, Favicon)
+├── tailwind.config.mjs # Configuración del motor de estilos
+└── astro.config.mjs    # Integración de Svelte y Tailwind
+Configuración y Solución de Problemas
+Durante el desarrollo, superamos varios retos técnicos importantes:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Tailwind v4 Integration: Configuramos @tailwindcss/postcss para asegurar la compatibilidad con el nuevo motor de estilos.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Hidratación de Componentes: Aprendimos a usar la directiva client:load en Astro para que los botones interactivos (como el de modo oscuro) funcionen en el navegador.
 
-Any static assets, like images, can be placed in the `public/` directory.
+Persistencia de Tema: Creamos un script is:inline en el Layout para evitar el "flash blanco" al recargar la página en modo oscuro.
 
-## 🧞 Commands
+Cómo ejecutarlo localmente
+Clona este repositorio:
 
-All commands are run from the root of the project, from a terminal:
+Bash
+git clone https://github.com/tu-usuario/tu-repositorio.git
+Instala las dependencias con Bun:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+Bash
+bun install
+Inicia el servidor de desarrollo:
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Bash
+bun dev
+Abre http://localhost:4321 en tu navegador.
