@@ -19,7 +19,7 @@ Arquitectura de Componentes: Uso de componentes reutilizables en .astro y .svelt
 
 Estructura del Proyecto
 Plaintext
-/
+/ 
 ├── src/
 │   ├── components/     # Componentes (Card.astro, ThemeToggle.svelte)
 │   ├── layouts/        # Estructura base de las páginas (Layout.astro)
