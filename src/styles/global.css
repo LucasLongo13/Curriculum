@@ -2,7 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tus otros estilos debajo */
-:root {
-  color-scheme: light dark;
+@layer components {
+  /* Contenedor de la sección */
+  .contact-section {
+    @apply max-w-xl mx-auto py-10;
+  }
+
+  /* Título principal */
+  .contact-title {
+    @apply text-4xl font-black mb-6 text-center text-slate-900 dark:text-white;
+  }
+
+  /* Tarjeta de contacto base */
+  .contact-card {
+    @apply flex flex-col items-center p-8 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm transition-all text-center;
+  }
+
+  /* Variantes de hover para las tarjetas */
+  .contact-card-linkedin { @apply hover:border-[#0077b5]/50; }
+  .contact-card-email { @apply hover:border-blue-500/50; }
+  .contact-card-phone { @apply hover:border-green-500/50; }
+
+  /* Contenedor del icono */
+  .contact-icon-wrapper {
+    @apply p-4 rounded-2xl mb-4;
+  }
+
+  /* Botones de acción */
+  .contact-btn {
+    @apply w-full max-w-xs py-3 rounded-xl font-bold transition-all text-center;
+  }
 }
