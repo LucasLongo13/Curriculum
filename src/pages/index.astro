@@ -1,29 +1,33 @@
 ---
+// SECCIÓN DE SCRIPTS (Frontmatter)
+// Importamos el Layout principal para mantener la coherencia visual del sitio.
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Inicio | Portafolio">
-	<section class="flex flex-col items-center text-center py-20" transition:animate="fade">
-		<div class="w-40 h-40 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full mb-8 overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800">
-			<img 
-				src="/tu-foto.jpg" 
-				alt="Avatar" 
-				class="w-full h-full object-cover"
-				onerror="this.src='https://fullforms.com/images/image/ChatGPT_25940.png';"
-			/>
-		</div>
+    <section class="flex flex-col items-center text-center py-20" transition:animate="fade">
+        
+        <div class="w-40 h-40 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full mb-8 overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800">
+            <img 
+                src="/tu-foto.jpg" 
+                alt="Avatar" 
+                class="w-full h-full object-cover"
+                onerror="this.src='https://fullforms.com/images/image/ChatGPT_25940.png';"
+            />
+        </div>
 
-		<h1 class="text-6xl font-extrabold mb-4 tracking-tight text-slate-900 dark:text-white">
-			Hola, soy <span class="text-blue-600 dark:text-blue-400">Lucas Lisandro Longo</span>
-		</h1>
-		<p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mb-10 leading-relaxed">
-			Desarrolador full stack de algo.
-		</p>
-		
-		<div class="flex gap-4">
-			<a href="/experiencia" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-all hover:scale-105 shadow-lg">
-				Ver mi experiencia
-			</a>
-		</div>
-	</section>
+        <h1 class="text-6xl font-extrabold mb-4 tracking-tight text-slate-900 dark:text-white">
+            Hola, soy <span class="text-blue-600 dark:text-blue-400">Lucas Lisandro Longo</span>
+        </h1>
+
+        <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mb-10 leading-relaxed">
+            Desarrolador full stack de algo.
+        </p>
+        
+        <div class="flex gap-4">
+            <a href="/experiencia" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-all hover:scale-105 shadow-lg">
+                Ver mi experiencia
+            </a>
+        </div>
+    </section>
 </Layout>
