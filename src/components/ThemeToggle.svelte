@@ -1,36 +1,43 @@
 <script>
-	import { onMount } from 'svelte';
+    import { onMount } from 'svelte'; // Importa el ciclo de vida para ejecutar código solo en el navegador.
 
-	let theme = 'light';
+    let theme = 'light'; // Declara una variable reactiva para guardar el tema actual (por defecto 'light').
 
-	function setTheme(newTheme) {
-		theme = newTheme;
-		applyTheme();
-	}
+    // Función central para cambiar el valor del tema y ejecutar los cambios visuales.
+    function setTheme(newTheme) {
+        theme = newTheme; // Actualiza la variable de estado.
+        applyTheme();     // Llama a la función que modifica el HTML real.
+    }
 
-	onMount(() => {
-		const savedTheme = localStorage.getItem('theme');
-		const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-		setTheme(savedTheme || systemTheme);
-	});
+    // Se ejecuta una sola vez cuando el componente se carga en la pantalla.
+    onMount(() => {
+        
+        const savedTheme = localStorage.getItem('theme');
+        
+        
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        
+      
+        setTheme(savedTheme || systemTheme);
+    });
 
-	function toggleTheme() {
-		setTheme(theme === 'light' ? 'dark' : 'light');
-	}
+    // Cambia de luz a oscuridad y viceversa al hacer clic.
+    function toggleTheme() {
+        setTheme(theme === 'light' ? 'dark' : 'light');
+    }
 
-	function applyTheme() {
-		const isDark = theme === 'dark';
-		document.documentElement.classList.toggle('dark', isDark);
-		document.body?.classList.toggle('dark', isDark);
-		localStorage.setItem('theme', theme);
-	}
+    // Aplica los cambios técnicos necesarios para que Tailwind y el navegador se enteren del cambio.
+    function applyTheme() {
+        const isDark = theme === 'dark';
+        
+        // Agrega o quita la clase 'dark' a la etiqueta principal <html>
+       
+        document.documentElement.classList.toggle('dark', isDark);
+        
+        // Opcional: Hace lo mismo en el <body> por si hay estilos específicos ahí
+        document.body?.classList.toggle('dark', isDark);
+        
+        // Guarda la elección en el almacenamiento local para que no se pierda al recargar la página
+        localStorage.setItem('theme', theme);
+    }
 </script>
-
-<button
-	on:click={toggleTheme}
-	class="p-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:ring-2 ring-blue-500 transition-all active:scale-90"
-	aria-label="Toggle Dark Mode"
-	aria-pressed={theme === 'dark'}
->
-	<span class="text-xl">{theme === 'light' ? '🌙' : '☀️'}</span>
-</button>
